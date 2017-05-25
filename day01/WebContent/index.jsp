@@ -8,5 +8,6 @@
 </head>
 <body>
 <h1>hello</h1>
+<a href="list.do">이동</a>
 </body>
 </html>
