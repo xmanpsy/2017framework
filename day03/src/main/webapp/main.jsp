@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+ㄹㄹㄴㅇㄹ
 list 	list.do 	get
 detail	detail.do	get
 
