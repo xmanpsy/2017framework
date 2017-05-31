@@ -26,6 +26,7 @@ public class UpdateOne extends ActionSupport {
 
 	@Override
 	public String execute() throws Exception {
+		System.out.println("asdasdasd");
 		SimpleDao dao = new SimpleDao();
 		int result=dao.UpdateOne(sabun,name,nalja,pay);
 		System.out.println("1이면 성공:" + result);

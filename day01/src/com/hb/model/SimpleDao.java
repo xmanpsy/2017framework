@@ -80,7 +80,18 @@ public class SimpleDao {
 		result=pstmt.executeUpdate();
 		return result;
 	}
-
+	public int updateOne(int sabun, String name, int pay) throws SQLException{
+		int result=0;
+		String sql="update sample01 set name=?, pay=? where sabun=?";
+		pstmt=conn.prepareStatement(sql);
+		pstmt.setString(1, name);
+		pstmt.setInt(2, pay);
+		pstmt.setInt(3, sabun);
+		result=pstmt.executeUpdate();
+		return  result;
+		
+	}
+	
 }
 
 

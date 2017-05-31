@@ -7,13 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-ㄹㄹㄴㅇㄹ
-list 	list.do 	get
-detail	detail.do	get
-
-insert  update.do	post
-update  update.do	put
-delete  update.do   delete
-
+	<h1>상세페이지</h1>
 </body>
 </html>
