@@ -40,6 +40,28 @@ public class SimpleDao {
 
 	}
 
+	public Map<String,Object> selectOne(int sabun) throws SQLException{
+		String sql="select * from simple02 where sabun=?";
+		Map<String,Object> map = new HashMap<>();
+		try {
+			conn = MyOracle.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, sabun);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				map.put("sabun", rs.getInt("sabun"));
+				map.put("name", rs.getString("name"));
+				map.put("nalja", rs.getString("nalja"));
+				map.put("pay", rs.getInt("pay"));
+			}
+		} finally {
+			closeAll();
+		}
+		return map;
+	}
+	
+	
+	
 	private void closeAll() throws SQLException {
 		if (rs != null)
 			rs.close();
@@ -48,4 +70,43 @@ public class SimpleDao {
 		if (conn != null)
 			conn.close();
 	}
+
+	public int insertOne(String name, String nalja, int pay) throws SQLException {
+		String sql="insert into simple02 (name,nalja,pay)";
+		sql+="values (?,?,?)";
+		
+		try{
+			conn=MyOracle.getConnection();
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setString(2, nalja);
+			pstmt.setInt(3, pay);
+			return pstmt.executeUpdate();
+		}finally{closeAll();}
+	}
+
+	public int deleteOne(int sabun) throws SQLException {
+
+		try{
+		String sql = "DELETE FROM SIMPLE02 WHERE SABUN=?";
+		conn=MyOracle.getConnection();
+		pstmt=conn.prepareStatement(sql);
+		pstmt.setInt(1, sabun);
+		return pstmt.executeUpdate();
+		}finally{closeAll();}
+	}
+
+	public int UpdateOne(int sabun, String name, String nalja, int pay) throws SQLException {
+		try{
+			String sql = "UPDATE SIMPLE02 SET name=?, nalja=?, pay=? WHERE sabun=?";
+			conn=MyOracle.getConnection();
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, name);
+			pstmt.setString(2, nalja);
+			pstmt.setInt(3, pay);
+			pstmt.setInt(4, sabun);
+			return pstmt.executeUpdate();
+			}
+		finally{closeAll();}
+		}
 }

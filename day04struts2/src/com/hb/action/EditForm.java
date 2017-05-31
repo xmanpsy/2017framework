@@ -1,22 +1,24 @@
 package com.hb.action;
 
-import java.util.List;
 import java.util.Map;
 
 import com.hb.model.SimpleDao;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class SelectAll extends ActionSupport {
-	private List<Map<String, Object>> alist;
-	
-	public List<Map<String, Object>> getAlist() {
-		return alist;
+public class EditForm extends ActionSupport{
+	private int sabun;
+	private Map<String, Object> bean;
+	public void setSabun(int sabun) {
+		this.sabun = sabun;
+	}
+	public Map<String, Object> getBean() {
+		return bean;
 	}
 	
 	@Override
 	public String execute() throws Exception {
 		SimpleDao dao = new SimpleDao();
-		alist=dao.selectAll();
+		bean = dao.selectOne(sabun);
 		
 		return this.SUCCESS;
 	}
