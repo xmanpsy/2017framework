@@ -1,6 +1,7 @@
 package com.hb.struts.model;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.tomcat.jdbc.pool.DataSource;
+
 
 public class SimpleDao {
 
@@ -97,4 +99,40 @@ public class SimpleDao {
 		}finally{closeAll();}
 		return bean;
 	}
+
+
+
+	public int UpdateOne(SimpleVo bean) throws SQLException {
+		int result=0;
+		String sql="UPDATE SIMPLE03 SET name=?, pay=? WHERE sabun=?";
+		try{
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setString(1,bean.getName());
+				pstmt.setInt(2,bean.getPay());
+				pstmt.setInt(3,bean.getSabun());
+				result=pstmt.executeUpdate();
+		}finally{closeAll();}
+		return result;
+	}
+	
+	
+	public int deleteOne(int sabun) throws SQLException {
+		int result=0;
+		String sql = "DELETE FROM SIMPLE03 WHERE SABUN=?";
+		System.out.println("½ÇÇàµÊ");
+		try{
+		pstmt=conn.prepareStatement(sql);
+		pstmt.setInt(1, sabun);
+		return pstmt.executeUpdate();
+		}finally{
+			closeAll();
+			}
+		
+	}
+
+	
+	
+	
+	
+	
 }

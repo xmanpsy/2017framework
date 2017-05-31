@@ -24,7 +24,6 @@ public class UpdateAction extends ActionSupport{
 		return true;
 		
 	}
-	
 	@Override
 	public String execute() throws Exception {
 		log.debug(bean);
