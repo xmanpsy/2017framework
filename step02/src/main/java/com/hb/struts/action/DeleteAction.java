@@ -10,7 +10,7 @@ public class DeleteAction extends ActionSupport{
 	public void setSabun(int sabun) {
 		this.sabun = sabun;
 	}
-	
+	///asdasdaasdasd
 	@Override
 	public String execute() throws Exception {
 		int result=0;

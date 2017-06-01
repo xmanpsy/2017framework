@@ -32,6 +32,7 @@
 		
 		<action name="update" class="com.hb.struts.action.UpdateTwoAction">
 			<interceptor-ref name="params"/>
+			<interceptor-ref name="validation"></interceptor-ref>
 			<interceptor-ref name="workflow"/>
 			<result name="input" type="redirectAction">
 				<param name="actionName">edit</param>

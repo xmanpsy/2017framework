@@ -17,7 +17,7 @@ public class UpdateTwoAction extends ActionSupport{
 		this.bean = bean;
 	}
 	
-	
+	//adsfasdf
 	@Override
 	public void validate() {
 		if(bean.getSabun()==0)addFieldError("sabun", "사번을 입력");
