@@ -9,6 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>
 <link rel = "stylesheet" href="css/bootstrap.min.css">
+
+<style type="text/css">
+.alert{
+	display: ${paramScope.dispay ? "block":"none"};
+}
+</style>
+
 <script
   src="https://code.jquery.com/jquery-1.12.4.min.js"
   integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
@@ -44,8 +51,13 @@
             </tr>
             <c:forEach items="${alist }" var="bean">
             <tr>
-               <td>${bean.sabun }</td>
-               <td>${bean.name }</td>
+            <td>${bean.sabun }</td>
+               <td>
+               <a href="detail.do?idx=${bean.sabun}">
+               ${bean.name }
+               </a>
+               </td>
+               
                <td>${bean.nalja }</td>
                <td>${bean.pay }</td>
             </tr>
