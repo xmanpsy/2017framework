@@ -8,6 +8,12 @@
 	
 	<!-- 2.controller클래스를 설정 -->
 	<bean name="/index.do" class="com.hb.day01.controller.IndexController"></bean>
-	<!-- view -->
+	<bean name="/list.do" class="com.hb.day01.controller.ListController"></bean>
 
+	<!-- view -->
+	<bean id="viewResolver"
+	 class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	 	<property name="prefix" value="/"></property>
+	 	<property name="suffix" value=".jsp"></property>
+	 </bean>
 </beans>
